@@ -1,6 +1,7 @@
 package ptrkit
 
 import (
+	"fmt"
 	"reflect"
 	"testing"
 )
@@ -108,4 +109,20 @@ func TestPointerDepth(t *testing.T) {
 			}
 		})
 	}
+}
+
+func ExamplePointerDepth() {
+	x := 42
+	pp := &x
+
+	fmt.Println(PointerDepth(x))
+	fmt.Println(PointerDepth(&x))
+	fmt.Println(PointerDepth(&pp))
+	fmt.Println(PointerDepth(nil))
+
+	// Output:
+	// 0
+	// 1
+	// 2
+	// 0
 }
